@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Country</title>
+		<% include ../views/head %>	
+	</head>
+	<body>
+		<!--This section contains Menu for page-->
+	    <section id="section_menu">
+	        <%  include ../views/menu %>
+	    </section>
+
+	    <!--Section Top-->
+	    <section id="section_top"></section>
+
+	    <!--Section message-->
+        <section id="section_message">
+            <% include ../views/message %>
+        </section>
+        <section id="section_country_modal">
+            <div class = "modal fade" id = "countryModal" tabindex = "-1" role = "dialog" 
+                    aria-labelledby = "countryModal" aria-hidden = "true">
+                <div class = "modal-dialog">
+                    <div class = "modal-content">
+                        <form class="form-inline" id="countryform" action="/addCountry" method="post">
+                            <div class = "modal-header">
+                                <h4 class = "modal-title" id = "countryModalTitle">
+                                    Add Country
+                                </h4>
+                            </div>
+                            <div class = "modal-body">
+                                <div>
+                                    <div class="content clearfix">
+                                        
+                                        <div class="form-group col-sm-12">
+                                            <label class="col-sm-5 form-control-label" for="txtcountryname">Country Name</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control form-text" id="txtcountryname" name="txtcountryname" placeholder="Country Name" required="">
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="form-group col-sm-12">
+                                            <div class="col-sm-offset-5 col-sm-7">
+                                              <button type="submit" id="countryBtn" class="btn btn-success">Add Country</button>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = "modal-footer">
+                                <button type="submit" id="countryBtn" class="btn btn-success">Add Country</button>
+                                <button type = "button" class = "btn btn-default" data-dismiss = "modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="section_country_list">
+            <div class="container page-title-container">
+                <div class="padding-none col-xs-12 col-sm-12">
+                    <div class="padding-none col-xs-12 col-sm-6">
+                        <h3>Country List</h3>
+                    </div>
+                    <div class="padding-none col-xs-12 col-sm-6">
+                        <p>
+                            <button   id="addCountry"   class = " btn btn-primary" data-toggle = "modal" data-target = "#countryModal">Add Country</button>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <table id="allcountry" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Country Name</th>
+                                <th class="action-div">Edit</th>
+                                <th class="action-div">Remove</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <% for(var i=0; i<allcountry.length; i++) { %>
+                                <tr>
+                                    <td><%= allcountry[i].country_name %></td>
+                                    <td class="image-td"><a href="#" class="editCountry" data-id='<%= allcountry[i]._id %>'><img class="img-responsive" src="/images/edit-icon.png" data-toggle = "modal" data-target = "#countryModal"></a></td>
+                                    <td  class="image-td"><a href="#" class="removeCountry" data-id='<%= allcountry[i]._id %>'><img class="img-responsive" src="/images/delete-icon.png"></a></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <footer>
+        	<% include ../views/footer %>
+            <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
+            <script src="https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.min.js"></script>
+            <script src="https://cdn.datatables.net/responsive/2.0.2/js/responsive.bootstrap.min.js"></script>
+            <script src="../js/controller/countryCtrl.js"></script>  	
+        </footer>
+    </body>
+</html>

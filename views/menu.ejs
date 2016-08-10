@@ -1,0 +1,51 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="#">Beyond Essential Clinics</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="mainnav nav navbar-nav navbar-right">
+                <!-- <li><a href="/"><span>Dashboard</span> </a> </li> -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CRUD <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <% if(typeof(user != 'undefined') && user.role == 'Super Admin') { %>
+                            <li><a href="/admins">Admins</a></li>
+                            <li><a href="/country">Country</a> </li>
+                        <% } %>
+                        <!-- <li><a href="/userRegistration"><span>Add New User</span> </a> </li> -->
+                        <li><a href="/users">Users</a></li>
+                        <!-- <li><a href="/updateProfileView/<%= user._id %>">Update Profile</a> </li> -->
+                        
+                    </ul>
+               	</li>
+                <li><a href="/updateProfileView/<%= user._id %>"><%= user.first_name %> <%= user.last_name %></a></li>
+                <li><a href="/logout">Logout</a> </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+</nav>
+
+<script src="../js/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.mainnav').find('a').each(function() {
+         	//var current_request_path = " " + <%= path %>.toString();
+         	var current_request_path = '<%= path %>';
+         	var a_href = $(this).attr('href');
+         	if(a_href == current_request_path){
+         		$(this).parents('li').addClass("active");
+         	} 
+ 	    });
+    });
+</script>

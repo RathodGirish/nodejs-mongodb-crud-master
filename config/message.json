@@ -1,0 +1,5 @@
+{
+	"IMAGE_QUESTIONS_PATH": "public/images/questions/",
+	"IMAGE_PATIENTS_PATH": "public/images/patients/",
+	"IMAGE_URL": "/images/questions/"
+}

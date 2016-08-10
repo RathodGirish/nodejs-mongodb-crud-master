@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		<% include ../views/head %>	
+	</head>
+	<body>
+		<!--Section Contains Header -->
+		<% include ../views/navbar %>
+
+		<!--Section Top-->
+		<section id="section_top"></section>
+
+		<section id="section_message">
+			<div class="container">
+				<div class="message_container">
+					<div class="fail_message_container">
+						
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--Section Contains Login Area-->
+		<section id="section_login"></section>
+			<div class="container">
+				<div class="col-sm-6">
+					<form action="" method="post">
+						<fieldset class="form-group">
+					    	<label for="txtemail">Email</label>
+					    	<input type="email" class="form-control" value="rkk@gmail.com" id="txtemail" name="txtemail" placeholder="Email" required="">
+					  	</fieldset>
+					  	<fieldset class="form-group">
+					    	<label for="txtpassword">Password</label>
+					    	<input type="password" class="form-control" value="111111" id="txtpassword" name="txtpassword" placeholder="Password" required="">
+					  	</fieldset>
+					  	<button type="button" id="adminLoginBtn" class="btn btn-primary">Submit</button>
+					</form>    
+				</div> <!-- /col-sm-6 -->
+			</div> <!-- /container -->
+		</section>
+		<footer>
+	    	<% include ../views/footer %>
+	    	<script src="../js/jquery.min.js"></script>
+	    	<script src="../js/controller/loginCtrl.js"></script> 
+	    </footer>
+	</body>
+</html>

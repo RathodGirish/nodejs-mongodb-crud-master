@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title>Update Profile</title>
+		<!--This include contains All CSS for page-->
+		<% include ../views/head %>
+	</head>
+	<body>
+		<!--This section contains Menu for page-->
+	    <section id="section_menu">
+	        <%  include ../views/menu %>
+	    </section>
+	    
+	    <!--Section Top-->
+	    <section id="section_top"></section>
+
+	    <!--Section message-->
+        <section id="section_message">
+            <% include ../views/message %>
+        </section>
+
+	    <section id="section_update_profile">
+	    	<div class="container">
+	    		<div class="col-xs-12 col-sm-12 text-center">
+	  				<i class="icon-user"></i>
+	  				<h3>Admin Details</h3>
+  				</div>
+  				<div class="col-xs-12 col-sm-12">
+				    <hr>
+				</div>
+            	<div class="col-xs-12 col-sm-12">
+            		<form class="form-inline" id="adminUpdateProfileForm" action='/editAdminById/<%= admin._id %>' method="post">
+						<div class="form-group col-sm-12">
+					    	<label for="FirstName" class="col-sm-5 form-control-label">First Name</label>
+					    	<div class="col-sm-7">
+					      		<input type="text" value='<%= admin.first_name %>' class="form-control" id="txtfirstname" name="txtfirstname" placeholder="First Name" required>
+					    	</div>
+					  	</div>
+					  	<div class="form-group col-sm-12">
+					    	<label for="LastName" class="col-sm-5 form-control-label">Last Name</label>
+					    	<div class="col-sm-7">
+					      		<input type="text" value='<%= admin.last_name %>' class="form-control" id="txtlastname" name="txtlastname" placeholder="Last Name" required>
+					    	</div>
+					  	</div>
+					  	<div class="form-group col-sm-12">
+					    	<label for="Email" class="col-sm-5 form-control-label">Email</label>
+					    	<div class="col-sm-7">
+					      		<input type="email" value='<%= admin.email %>' class="form-control" id="txtemail" name="txtemail" readonly="readonly" placeholder="Email" required>
+					    	</div>
+					  	</div>
+					  	<div class="form-group col-sm-12">
+					    	<label for="password" class="col-sm-5 form-control-label">Password</label>
+					    	<div class="col-sm-7">
+					      		<input type="password" value='' class="form-control" id="txtpassword" name="txtpassword" placeholder="Password" required>
+					    	</div>
+					  	</div>
+					  	<div class="form-group col-sm-12">
+					    	<label for="Country" class="col-sm-5 form-control-label">Country</label>
+					    	<div class="col-sm-7">
+					      		<input type="text" value='<%= admin.country %>' class="form-control" id="country" name="country" readonly="readonly" placeholder="Email" required>
+							</div>
+					  	</div>
+					  	<div class="form-group col-sm-12">
+					    	<label for="State" class="col-sm-5 form-control-label">State</label>
+					    	<div class="col-sm-7">
+					      		<input type="text" value='<%= admin.state %>' class="form-control" id="txtstatename" name="txtstatename" placeholder="State Name" required>
+					    	</div>
+					  	</div>
+				  		<div class="form-group col-sm-12">
+					    	<label for="City" class="col-sm-5 form-control-label">City</label>
+					    	<div class="col-sm-7">
+					      		<input type="text" value='<%= admin.city %>' class="form-control" id="txtcityname" name="txtcityname" placeholder="City Name" required>
+					    	</div>
+				  		</div>
+				  		<div class="form-group col-sm-12">
+				            <div class="col-sm-offset-5 col-sm-7">
+				            	<button class="btn btn-success" id="updateProfileBtn" >Update</button>
+				            </div>
+            			</div>
+					</form>
+				</div>
+		    </div>
+	    </section>
+		<footer>
+			<% include ../views/footer %>
+		</footer>
+	</body>
+</html>

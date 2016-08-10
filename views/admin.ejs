@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>All Admin</title>
+	<% include ../views/head %>
+</head>
+	<body>
+		<!--This section contains Menu for page-->
+	    <section id="section_menu">
+	        <%  include ../views/menu %>
+	    </section>
+
+	    <!--Section Top-->
+	    <section id="section_top"></section>
+
+	    <!--Section message-->
+        <section id="section_message">
+            <% include ../views/message %>
+        </section>
+        
+		<section id="section_admin_modal">
+	        <div class = "modal fade" id = "adminModal" tabindex = "-1" role = "dialog" 
+	                aria-labelledby = "adminModalLabel" aria-hidden = "true">
+	            <div class = "modal-dialog">
+	            	<form class="form-inline" id="adminRegistrationForm" action="" method="post">
+		                <div class = "modal-content">
+		                    <div class = "modal-header">
+		                        <h4 class = "modal-title" id = "adminModalTitle">
+		                            Add Admin
+		                        </h4>
+		                    </div>
+		                <div class = "modal-body">
+	                        <div class="content clearfix">
+								<div class="form-group col-sm-12">
+							    	<label for="FirstName" class="col-sm-5 form-control-label">First Name</label>
+							    	<div class="col-sm-7">
+							      	<input type="text" class="form-control form-text" id="txtfirstname" name="txtfirstname" placeholder="First Name" required>
+							    	</div>
+							  	</div>
+							  	<div class="form-group col-sm-12">
+							    	<label for="LastName" class="col-sm-5 form-control-label">Last Name</label>
+							    	<div class="col-sm-7">
+							      	<input type="text" class="form-control form-text" id="txtlastname" name="txtlastname" placeholder="Last Name" required>
+							    	</div>
+							  	</div>
+							  	<div class="form-group col-sm-12">
+							    	<label for="Email" class="col-sm-5 form-control-label">Email</label>
+							    	<div class="col-sm-7">
+							      	<input type="email" class="form-control form-text" id="txtemail" name="txtemail" placeholder="Email" required>
+							    	</div>
+							  	</div>
+							  	<div class="form-group col-sm-12">
+							    	<label for="password" class="col-sm-5 form-control-label">Password</label>
+							    	<div class="col-sm-7">
+							      	<input type="password" class="form-control form-text" id="txtpassword" name="txtpassword" placeholder="Password" required>
+							    	</div>
+							  	</div>
+							  	<div class="form-group col-sm-12">
+							    	<label for="Country" class="col-sm-5 form-control-label">Country</label>
+							    	<div class="col-sm-7">
+							      		<select id="country" class="form-control" id="country" name="country">
+							      			<option value="" selected disabled>Select Country</option>
+											<% for(var i=0; i<allcountry.length; i++) { %>
+                                        		<option value='<%= allcountry[i].country_name %>'><%= allcountry[i].country_name %></option>
+                                        	<% } %>
+										</select>
+									</div>
+							  	</div>
+							  	<div class="form-group col-sm-12">
+							    	<label for="State" class="col-sm-5 form-control-label">State</label>
+							    	<div class="col-sm-7">
+							      		<input type="text" class="form-control form-text" id="txtstatename" name="txtstatename" placeholder="State Name" required>
+							    	</div>
+							  	</div>
+						  		<div class="form-group col-sm-12">
+							    	<label for="City" class="col-sm-5 form-control-label">City</label>
+							    	<div class="col-sm-7">
+							      		<input type="text" class="form-control form-text" id="txtcityname" name="txtcityname" placeholder="City Name" required>
+							    	</div>
+						  		</div>
+						  		<!-- <div class="form-group col-sm-12">
+						            <div class="col-sm-offset-5 col-sm-7">
+						            	<button class="btn btn-success" id="adminSubmitBtn" >Add Admin</button>
+						            </div>
+	                			</div> -->
+	                        </div>
+		                </div>
+		                <div class = "modal-footer">
+		                	<button class="btn btn-success" id="adminSubmitBtn" >Add Admin</button>
+		                    <button type = "button" class = "btn btn-default" data-dismiss = "modal"> Close </button>
+		                </div>
+	                </form>
+            	</div>
+        	</div>
+    	</div>
+    	</section>
+
+		<section id="section_admin_list">
+			<div class="container page-title-container">
+                <div class="padding-none col-xs-12 col-sm-12">
+                    <div class="padding-none col-xs-12 col-sm-6">
+                        <h3>Admin List</h3>
+                    </div>
+                    <p>
+	                    <button class ="addAdmin btn btn-primary" data-toggle = "modal" data-target = "#adminModal">Add Admin</button>
+	                </p>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <hr>
+                </div>
+            </div>
+			<div class="container">
+		    	<div class="row">
+		    		<table id="AllAdmin" class="table table-striped table-bordered" cellspacing="0" width="100%">
+				        <thead>
+				            <tr>
+				                <th>Name</th>
+				                <th>Email</th>
+				                <% if(typeof(user != 'undefined') && user.role == 'Super Admin') { %>
+				                	<th>Country</th>
+				                <% } %>
+				                <th>Role</th>
+				                <th class="action-div">Edit</th>
+				                <th class="action-div">Remove</th>
+				            </tr>
+				        </thead>
+						<tbody>
+					       <% for(var i=0; i<alladmin.length; i++) {%>
+							 <tr>
+				    			 <td><%= alladmin[i].first_name %> <%= alladmin[i].last_name %></td>
+				    			 <td><%= alladmin[i].email %></td>
+				    			 <% if(typeof(user != 'undefined') && user.role == 'Super Admin') { %>
+				    			 	<td><%= alladmin[i].country %></td>
+				    			 <% } %>
+				    			 <td><%= alladmin[i].role %></td>
+				                 <td class="image-td"><a href="#" class="editAdmin" data-id='<%= alladmin[i]._id %>'><img class="img-responsive" src="/images/edit-icon.png" data-toggle = "modal" data-target = "#adminModal"></a></td>
+				    			 <td class="image-td"><a href="#" class="removeAdmin" data-id='<%= alladmin[i]._id %>'><img class="img-responsive" src="/images/delete-icon.png"></a></td>
+				    			  <!-- <td class="image-td"><a href="/removeadmin?admin_id=<%= alladmin[i]._id %>" class="editAdmin"><img class="img-responsive" src="/images/delete-icon.png"></a></td> -->
+							 </tr>
+						   <% } %>
+				        </tbody>
+					</table>
+		    	</div>
+		    </div>
+		</section>
+		<footer>
+			<% include ../views/footer %>
+			<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
+            <script src="https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.min.js"></script>
+            <script src="https://cdn.datatables.net/responsive/2.0.2/js/responsive.bootstrap.min.js"></script>
+	        <script src="../js/controller/adminCtrl.js"></script>	
+	    </footer>
+	</body>
+</html>

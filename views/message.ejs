@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="message_container">
+		<% if(typeof(messages != 'undefined')) {%>
+		 	<% for(var i=0; i<messages.length; i++) {%>
+			    <div class="message_container">
+				<% if(messages[i].type == 'success') {%>
+			    	<div class="success_message_container">
+			    		<div class="alert alert-success alert-dismissible fade in" role="alert">
+						  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						    	<span aria-hidden="true">&times;</span>
+						  	</button>
+						  	<strong>Success!</strong> <%= messages[i].message %>
+						</div>
+					</div>
+				<% } else if(messages[i].type == 'fail') {%>
+					<div class="fail_message_container">
+						<div class="alert alert-danger alert-dismissible fade in" role="alert">
+						  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						    	<span aria-hidden="true">&times;</span>
+						  	</button>
+						  	<strong>Success!</strong> <%= messages[i].message %>
+						</div>
+					</div>
+				<% } 
+			}
+		}%>
+	</div>
+</div>

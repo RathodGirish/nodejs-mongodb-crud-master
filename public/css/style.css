@@ -1,0 +1,190 @@
+/*----- navbar section ---------*/
+
+#section_top{
+	margin-top: 60px;
+}
+
+.navbar-inverse .navbar-brand{
+	font-weight: bold;
+	color: #ffffff; 
+}
+/*.navbar-inverse{
+ 	background: #00ba8b none repeat scroll 0 0 !important;
+ 	color: #fff !important;
+}*/
+
+/*------ modal -------*/
+
+.form-group{
+	margin: 5px 0px;
+}
+
+.modal-body .form-inline, .modal-body .form-control {
+	width: 97% !important;
+}
+
+.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate{
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.dataTable{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.dataTables_filter{
+	float: right;
+}
+
+.radio{
+	height: 35px;
+}
+
+.bootbox{
+	margin-top: 40px;
+	top: 40px;
+}
+
+.alert-success, .alert-danger{
+	padding: 5px 35px 5px 5px;
+}
+
+.clinic_assessment_data{
+	margin-bottom: 10px;
+}
+
+.clinic_items{
+	list-style: none;
+}
+
+textarea {
+    resize: none;
+}
+
+.current_que_photo{
+	cursor: pointer;
+}
+
+.plus_option i{
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+.page-title-container h3, .page-title-container p{
+	margin: 5px;
+}
+
+.page-title-container p{
+	text-align: right;
+}
+
+.page-title-container h3{
+	text-align: left;
+}
+
+.padding-none{
+	padding: 0px;
+}
+
+.initial_items_div{
+	height: 300px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin: 3px 0px;
+}
+
+.action-div{
+	width: 20px;
+}
+
+.image-td{
+	vertical-align:middle !important; 
+	text-align:center !important;
+}
+
+.image-td img{
+	display:block !important; 
+	margin:0 auto !important;
+}
+
+.form-inline{
+	margin-bottom: 0px;
+}
+
+div#spinner{
+	display: none;
+    background-color: #333;
+    opacity: 0.8;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-image: url('../images/spinner.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+img{
+	cursor: pointer;
+}
+
+.dataTable tbody td{
+	vertical-align: middle !important;
+}
+
+.ques_option .form-control{
+	margin-bottom: 5px;
+}
+
+@media screen and (max-width: 767px) {
+	.page-title-container p, .treatments_list .text-right, .patient_detail .text-right{
+		text-align: left;
+	}
+
+	.dataTables_filter{
+		float: left;
+	}
+
+	select.form-control{
+		width: 100% !important;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	/*.navbar-brand{
+		font-size: 14px;
+	}
+
+	.navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+   .navbar-collapse.collapse.in {  /* NEW */
+        display: block!important; 
+    }*/
+}
